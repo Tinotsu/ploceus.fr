@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/output.css' | relative_url }}">
-</head>
-<body>
-    {% include header.html %}
-  
-    {% include hero.html %}
-    {% include result.html %}
-    {% include social_proof.html %}
-    {% include case_study.html %}
-    {% include process.html %}
-    {% include contact.html %}
-
-  {% include footer.html %}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/output.css' | relative_url }}" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    {% include in_construction.html %} 
+    <!--
+    {% include header.html %} 
+    {% include hero.html%} 
+    {% include result.html %} {% include social_proof.html %} {% include
+    case_study.html %} {% include process.html %} {% include contact.html %} {%
+    include footer.html %}-->
+  </body>
 </html>

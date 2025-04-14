@@ -1,19 +1,118 @@
 <section class="">
   <div class="hero min-h-screen">
-    <div class="hero-content flex-col lg:flex-row-reverse">
-      <img
-        src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-        class="max-w-sm rounded-lg shadow-2xl"
-      />
-      <div>
-        <h1 class="text-5xl font-bold">Box Office News!</h1>
-        <p class="py-6">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-          excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-          id nisi.
+    <div class="hero-content w-4/5 m-auto justify-between lg:w-full flex-col lg:flex-row">
+      <div class="flex flex-col">
+        <h1 class="text-7xl lg:text-5xl font-bold text-center lg:text-left">
+          Des sites qui font <strong>Grandir</strong> les entreprises
+        </h1>
+        <p class="py-6 text-3xl lg:text-base text-center lg:text-left">
+          Ne vous contentez pas d'un site vitrine. Faites vous un site
+          vendeur.<br />
+          Obtenez un site qui sera le pilier de votre cycle de vente en
+          seulement <strong>28jours</strong>.
         </p>
-        <button class="btn btn-primary">Get Started</button>
+        <button
+          class="text-3xl lg:text-base btn btn-primary w-fit self-center lg:self-start"
+        >
+          Entrons en contact
+        </button>
+      </div>
+      <div class="mockup-browser border border-base-300 w-full flex flex-col">
+        <div class="mockup-browser-toolbar">
+          <div class="input text-2xl lg:text-base">https://votre-nouveau-site.com</div>
+        </div>
+
+        <div class="hero h-96">
+          <canvas id="myChart"></canvas>
+        </div>
+        <button
+          id="toggleChart"
+          class="text-3xl self-center m-4 lg:text-base btn btn-secondary"
+        >
+          Méthode sans Ploceus
+        </button>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  // Get the canvas context and initialize the chart
+  const ctx = document.getElementById("myChart");
+
+  // Create the chart instance and store it in a variable to update later
+  const chart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [
+        "mois-3",
+        "mois -2",
+        "mois -1",
+        "méthode Ploceus",
+        "28 jours plus tard",
+        "mois +2",
+        "mois +3",
+      ],
+      datasets: [
+        {
+          label: "taux de conversion de votre site avec Ploceus",
+          data: [1.5, 1.2, 2.2, 1.1, 4.6, 12.1, 18.9],
+          borderWidth: 2,
+          borderColor: "blue",
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          // Adjust the range to suit our tick positions
+          min: 0,
+          max: 20,
+          ticks: {
+            stepSize: 5,
+            callback: function (value, index, ticks) {
+              // Define custom labels for each tick position
+              const conversionLabels = [
+                "Aucune conversion",
+                "Conversion faible",
+                "Conversion moyenne",
+                "Conversion élevée",
+                "Conversion exceptionnelle",
+              ];
+              return conversionLabels[index] || value;
+            },
+          },
+        },
+      },
+    },
+  });
+
+  // Toggle flag to track current chart state
+  let isSansPloceus = false;
+
+  // Add event listener to the toggle button
+  const toggleChartButton = document.getElementById("toggleChart");
+  toggleChartButton.addEventListener("click", () => {
+    // Toggle the flag's state
+    isSansPloceus = !isSansPloceus;
+
+    if (isSansPloceus) {
+      // Update chart to display "sans Ploceus" state
+      chart.data.datasets[0].label =
+        "taux de conversion de votre site sans Ploceus";
+      chart.data.datasets[0].data = [1.5, 1.8, 2.2, 2.0, 2.5, 2.8, 1.0]; // Example values
+      chart.data.datasets[0].borderColor = "red";
+      toggleChartButton.textContent = "Méthode avec Ploceus";
+    } else {
+      // Revert to the original "avec Ploceus" state
+      chart.data.datasets[0].label =
+        "taux de conversion de votre site avec Ploceus";
+      chart.data.datasets[0].data = [3.5, 3.2, 4.2, 3.1, 6.6, 12.1, 18.9];
+      chart.data.datasets[0].borderColor = "blue";
+      toggleChartButton.textContent = "Méthode sans Ploceus";
+    }
+
+    // Update the chart to reflect the changes
+    chart.update();
+  });
+</script>
