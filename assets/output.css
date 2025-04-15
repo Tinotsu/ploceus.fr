@@ -2416,6 +2416,9 @@
     color: var(--color-base-content);
     font-weight: 600;
   }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
   }
