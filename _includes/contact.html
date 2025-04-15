@@ -1,56 +1,150 @@
 <section class="mx-auto my-48 w-3/4">
   <div class="hero">
     <div class="hero-content flex-col lg:flex-row-reverse">
-      <div class="text-center lg:text-left">
-        <h1 class="text-7xl font-bold">Login now!</h1>
-        <p class="py-6 text-4xl">
+      <div class="text-center lg:text-left lg:w-2/3 lg:ml-12">
+        <h2 class="text-7xl lg:text-5xl font-bold">
+          Vous souhaitez que votre site passe de vitrine un peu honteuse à
+          aimant à clients ?
+        </h2>
+        <p class="py-6 lg:text-base text-4xl">
           Vous avez une idée ou un projet à concrétiser ? Contactez-nous pour
           bénéficier d'un accompagnement personnalisé !
         </p>
       </div>
-      <fieldset
-        class="fieldset w-xl bg-base-200 border border-base-300 p-4 rounded-box"
+      <form
+        class="fieldset w-xl bg-base-200 border border-base-300 p-4 gap-8 lg:gap-2 rounded-box"
+        method="post"
+        action="https://n8n.srv756802.hstgr.cloud/webhook-test/contact"
       >
-        <legend class="fieldset-legend text-3xl">Formulaire de contact</legend>
-
-        <label class="fieldset-label text-3xl">Votre nom</label>
-        <input
-          type="text"
-          class="input file-input-xl text-4xl"
-          placeholder="Nom"
-        />
-
-        <label class="fieldset-label text-3xl">Votre email</label>
-        <input
-          type="email"
-          class="input file-input-xl text-4xl"
-          placeholder="Email"
-        />
-
-        <label class="fieldset-label text-3xl">Votre site web</label>
-        <input
-          type="url"
-          class="input file-input-xl text-4xl"
-          placeholder="Site Web"
-        />
-
+        <legend class="fieldset-legend lg:text-base text-3xl">
+          Formulaire de contact
+        </legend>
+        <div>
+          <label class="fieldset-label lg:text-base text-3xl">Votre nom</label>
+          <input
+            type="text"
+            class="input file-input-xl lg:file-input-sm lg:text-base text-3xl"
+            placeholder="John Doe"
+          />
+        </div>
+        <div>
+          <label class="fieldset-label lg:text-base text-3xl"
+            >Votre email</label
+          >
+          <input
+            type="email"
+            class="input file-input-xl lg:file-input-sm lg:text-base text-3xl"
+            placeholder="nom@entreprise.com"
+          />
+        </div>
+        <div>
+          <label class="fieldset-label lg:text-base text-3xl"
+            >Votre site web</label
+          >
+          <input
+            type="url"
+            class="input file-input-xl lg:file-input-sm lg:text-base text-3xl"
+            placeholder="entreprise.com"
+          />
+        </div>
+        <div>
+          <label class="fieldset-label lg:text-base text-3xl"
+            >Décrivez votre envie</label
+          >
+          <textarea
+            maxlength="5000"
+            class="textarea textarea-xl lg:textarea-md lg:text-base text-3xl"
+            placeholder="Votre situation actuelle/souhaitée"
+          ></textarea>
+        </div>
         <input
           type="submit"
-          class="btn btn-neutral btn-xl text-4xl mt-4"
+          class="btn lg:btn-sm btn-neutral w-fit btn-xl lg:text-base text-4xl mt-4"
           value="Envoyer "
         />
-      </fieldset>
+      </form>
     </div>
   </div>
-  <div class="mockup-browser border border-base-300 w-full">
+  <div class="mt-48 mockup-browser border border-base-300 w-full">
     <div class="mockup-browser-toolbar">
-      <div class="input">https://votre-nouveau-site.com</div>
+      <div class="input">
+        <a href="https://www.linkedin.com/in/tino-pianfetti-069872315/"
+          >https://mon_LinkedIn/</a
+        >
+      </div>
     </div>
     <div
       class="hero h-96"
       style="background-image: url('{{ '/assets/images/tino_working.webp' | relative_url }}');"
     >
-      <div class="hero-content text-neutral-content text-center"></div>
+      <div class="hero-content text-neutral-content text-center">
+        <a
+          href="https://www.linkedin.com/in/tino-pianfetti-069872315/"
+          target="_blank"
+          rel="noopener"
+          class="text-4xl btn-xl lg:btn-sm lg:text-base btn btn-primary w-fit self-center lg:self-start"
+        >
+          Me retrouvez sur LinkedIn
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- Success Modal -->
+<dialog id="modal_success" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">✅ Message envoyé !</h3>
+    <p class="py-4">
+      Merci pour votre message. Nous vous répondrons rapidement.
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>Fermer</button>
+  </form>
+</dialog>
+
+<!-- Failure Modal -->
+<dialog id="modal_error" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">❌ Erreur d'envoi</h3>
+    <p class="py-4">Une erreur s'est produite. Veuillez réessayer plus tard.</p>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>Fermer</button>
+  </form>
+</dialog>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form"); // Target your actual form
+    const modalSuccess = document.getElementById("modal_success");
+    const modalError = document.getElementById("modal_error");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          modalSuccess.showModal();
+          form.reset(); // optional: clear form
+        } else {
+          modalError.showModal();
+        }
+      } catch (err) {
+        modalError.showModal();
+      }
+    });
+  });
+</script>
