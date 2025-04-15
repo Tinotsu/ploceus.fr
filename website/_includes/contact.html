@@ -1,49 +1,45 @@
-<section class="mx-auto my-24 w-3/4">
-  <div class="hero min-h-screen">
+<section class="mx-auto my-48 w-3/4">
+  <div class="hero">
     <div class="hero-content flex-col lg:flex-row-reverse">
       <div class="text-center lg:text-left">
-        <h1 class="text-5xl font-bold">Login now!</h1>
-        <p class="py-6">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-          excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a
-          id nisi.
+        <h1 class="text-7xl font-bold">Login now!</h1>
+        <p class="py-6 text-4xl">
+          Vous avez une idée ou un projet à concrétiser ? Contactez-nous pour
+          bénéficier d'un accompagnement personnalisé !
         </p>
       </div>
-      <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <div class="card-body">
-          <input
-            type="input"
-            class="input validator"
-            required
-            placeholder="Nom"
-            pattern="[A-Za-z][A-Za-z0-9\-]*"
-            minlength="3"
-            maxlength="30"
-            title="Only letters, numbers or dash"
-          />
-          <p class="validator-hint">
-            Doit être composé de 3 à 30 caractères <br />contenir uniquement des
-            lettres, des chiffres ou des tirets.
-          </p>
-          <input
-            class="input validator"
-            type="email"
-            required
-            placeholder="mail@site.com"
-          />
-          <div class="validator-hint">Entrez une adresse Email valide</div>
-          <input
-            type="url"
-            class="input validator"
-            required
-            placeholder="https://"
-            value="https://"
-            pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9-].*[a-zA-Z0-9])?.)+[a-zA-Z].*$"
-            title="Must be valid URL"
-          />
-          <p class="validator-hint">Entrez une URL valide</p>
-        </div>
-      </div>
+      <fieldset
+        class="fieldset w-xl bg-base-200 border border-base-300 p-4 rounded-box"
+      >
+        <legend class="fieldset-legend text-3xl">Formulaire de contact</legend>
+
+        <label class="fieldset-label text-3xl">Votre nom</label>
+        <input
+          type="text"
+          class="input file-input-xl text-4xl"
+          placeholder="Nom"
+        />
+
+        <label class="fieldset-label text-3xl">Votre email</label>
+        <input
+          type="email"
+          class="input file-input-xl text-4xl"
+          placeholder="Email"
+        />
+
+        <label class="fieldset-label text-3xl">Votre site web</label>
+        <input
+          type="url"
+          class="input file-input-xl text-4xl"
+          placeholder="Site Web"
+        />
+
+        <input
+          type="submit"
+          class="btn btn-neutral btn-xl text-4xl mt-4"
+          value="Envoyer "
+        />
+      </fieldset>
     </div>
   </div>
   <div class="mockup-browser border border-base-300 w-full">
