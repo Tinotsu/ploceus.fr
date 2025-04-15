@@ -2767,6 +2767,9 @@
   .gap-12 {
     gap: calc(var(--spacing) * 12);
   }
+  .gap-24 {
+    gap: calc(var(--spacing) * 24);
+  }
   .self-center {
     align-self: center;
   }
@@ -2992,6 +2995,11 @@
       --timeline-row-start: minmax(0, 1fr);
     }
   }
+  .\*\:gap-24 {
+    :is(& > *) {
+      gap: calc(var(--spacing) * 24);
+    }
+  }
   .\*\:text-3xl {
     :is(& > *) {
       font-size: var(--text-3xl);
@@ -3153,6 +3161,13 @@
       --fontsize: 0.75rem;
       --btn-p: 0.75rem;
       --size: calc(var(--size-field, 0.25rem) * 8);
+    }
+  }
+  .\*\:lg\:gap-0 {
+    :is(& > *) {
+      @media (width >= 64rem) {
+        gap: calc(var(--spacing) * 0);
+      }
     }
   }
   .\*\:lg\:text-base {
