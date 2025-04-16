@@ -1,14 +1,14 @@
 <section id="contact" class="mx-auto my-48 w-3/4">
-  <div class="divider lg:text-2xl text-3xl">Contacte</div>
+  <div class="divider text-3xl mb-24">Contacte</div>
   <!-- Start of Selection -->
   <div class="bg-base-200 p-6 sm:p-8 lg:p-10 rounded-lg shadow-lg">
     <div class="flex flex-col items-center gap-6 sm:gap-8 lg:flex-row">
       <!-- Texte d'accroche -->
       <div class="w-full lg:w-1/2 text-center lg:text-left">
-        <h2 class="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-primary-content mb-4">
+        <h2 class="text-7xl lg:text-5xl font-extrabold text-primary-content mb-12">
           Transformez votre site en véritable aimant à clients
         </h2>
-        <p class="text-base sm:text-lg lg:text-xl text-base-content">
+        <p class="lg:text-lg text-3xl text-base-content">
           Vous avez une idée ou un projet à concrétiser ? Profitez d'un accompagnement sur‑mesure dès maintenant.
         </p>
       </div>
@@ -18,11 +18,8 @@
         method="post"
         action="https://n8n.srv756802.hstgr.cloud/webhook-test/contact"
       >
-        <h3 class="text-xl sm:text-2xl font-semibold text-base-content">
-          Contactez-nous
-        </h3>
         <div>
-          <label for="name" class="block text-sm font-medium text-base-content">
+          <label for="name" class="block text-3xl lg:text-lg font-medium text-base-content">
             Votre nom
           </label>
           <input
@@ -31,11 +28,11 @@
             type="text"
             required
             placeholder="John Doe"
-            class="w-full border border-base-300 bg-base-100 text-base-content placeholder-base-content rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            class="w-full border border-base-300 bg-base-100 text-3xl lg:text-lg text-base-content placeholder-base-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         <div>
-          <label for="email" class="block text-sm font-medium text-base-content">
+          <label for="email" class="block text-3xl lg:text-lg font-medium text-base-content">
             Votre email
           </label>
           <input
@@ -44,23 +41,23 @@
             type="email"
             required
             placeholder="nom@entreprise.com"
-            class="w-full border border-base-300 bg-base-100 text-base-content placeholder-base-content rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            class="w-full border border-base-300 bg-base-100 text-3xl lg:text-lg text-base-content placeholder-base-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         <div>
-          <label for="website" class="block text-sm font-medium text-base-content">
-            Votre site web (optionnel)
+          <label for="website" class="block text-3xl lg:text-lg font-medium text-base-content">
+            Votre site web
           </label>
           <input
             id="website"
             name="website"
-            type="url"
+            type="text"
             placeholder="https://entreprise.com"
-            class="w-full border border-base-300 bg-base-100 text-base-content placeholder-base-content rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            class="w-full border border-base-300 bg-base-100 text-3xl lg:text-lg text-base-content placeholder-base-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         <div>
-          <label for="message" class="block text-sm font-medium text-base-content">
+          <label for="message" class="block text-3xl lg:text-lg font-medium text-base-content">
             Votre message
           </label>
           <textarea
@@ -69,25 +66,23 @@
             rows="4"
             maxlength="5000"
             placeholder="Décrivez votre situation actuelle et vos objectifs"
-            class="w-full border border-base-300 bg-base-100 text-base-content placeholder-base-content rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            class="w-full border border-base-300 bg-base-100 text-3xl lg:text-lg text-base-content placeholder-base-600 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
           ></textarea>
         </div>
         <button
           type="submit"
-          class="btn btn-primary w-full py-4 mt-4 font-medium"
+          class="btn btn-primary w-full py-4 mt-4 font-medium text-3xl lg:text-lg"
         >
           Envoyer
         </button>
       </form>
     </div>
   </div>
-  <!-- End of Selection -->
   <div class="mt-48 mockup-browser border border-base-300 w-full">
     <div class="mockup-browser-toolbar">
-      <div class="input">
+      <div class="input text-3xl lg:text-lg">
         <a href="https://www.linkedin.com/in/tino-pianfetti-069872315/"
-          >https://mon_LinkedIn/</a
-        >
+          >https://mon_LinkedIn/</a>
       </div>
     </div>
     <div
@@ -99,7 +94,7 @@
           href="https://www.linkedin.com/in/tino-pianfetti-069872315/"
           target="_blank"
           rel="noopener"
-          class="text-4xl btn-xl lg:btn-sm lg:text-base btn btn-primary w-fit self-center lg:self-start"
+          class="text-3xl lg:text-lg btn-xl lg:btn-sm btn btn-primary w-fit self-center lg:self-start"
         >
           Me retrouver sur LinkedIn
         </a>
@@ -111,22 +106,22 @@
 <dialog id="modal_success" class="modal">
   <div class="modal-box bg-base-100 text-base-content">
     <h3 class="text-3xl lg:text-lg font-bold">✅ Message envoyé !</h3>
-    <p class="text-2xl lg:text-base py-4">
+    <p class="text-3xl lg:text-lg py-4">
       Merci pour votre message. Nous vous répondrons rapidement.
     </p>
   </div>
   <form method="dialog" class="modal-backdrop">
-    <button>Fermer</button>
+    <button class="text-3xl lg:text-lg">Fermer</button>
   </form>
 </dialog>
 
 <dialog id="modal_error" class="modal">
   <div class="modal-box bg-base-100 text-base-content">
     <h3 class="text-3xl lg:text-lg font-bold">❌ Erreur d'envoi</h3>
-    <p class="text-2xl lg:text-base py-4">Une erreur s'est produite. Veuillez réessayer plus tard.</p>
+    <p class="text-3xl lg:text-lg py-4">Une erreur s'est produite. Veuillez réessayer plus tard.</p>
   </div>
   <form method="dialog" class="modal-backdrop">
-    <button>Fermer</button>
+    <button class="text-3xl lg:text-lg">Fermer</button>
   </form>
 </dialog>
 
