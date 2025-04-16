@@ -103,6 +103,7 @@
 }
 </style>
 
+<!-- Start of Selection -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const tooltip = document.getElementById('tooltip');
@@ -117,90 +118,65 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   carouselItems.forEach(item => {
-    item.addEventListener('mouseover', (event) => {
-      // Prevent tooltip on mobile items
+    // Tooltip handlers for desktop items
+    item.addEventListener('mouseover', () => {
       if (item.classList.contains('mobile-carousel-item')) return;
-
       const link = item.dataset.link;
       const description = item.dataset.description;
-
       if (link && description) {
-        // Include the link and description in the tooltip
-        // Make the link clickable (though the tooltip follows the mouse)
-        tooltip.innerHTML = `<a href="${link}" target="_blank">${link}</a><br>${description}`;
+        tooltip.innerHTML = `<a href="${link}" target="_blank" rel="noopener">${link}</a><br>${description}`;
         tooltip.style.display = 'block';
       }
     });
 
-    item.addEventListener('mousemove', (event) => {
-      // Prevent tooltip on mobile items
+    item.addEventListener('mousemove', event => {
       if (item.classList.contains('mobile-carousel-item')) return;
-
-      // Position tooltip near the cursor (+15px offset)
       tooltip.style.left = `${event.pageX + 15}px`;
       tooltip.style.top = `${event.pageY + 15}px`;
     });
 
     item.addEventListener('mouseout', () => {
-      // Prevent tooltip on mobile items
       if (item.classList.contains('mobile-carousel-item')) return;
-
       tooltip.style.display = 'none';
-      tooltip.innerHTML = ''; // Clear content
+      tooltip.innerHTML = '';
     });
-  });
 
-  // Add double-click listener to open link
-  carouselItems.forEach(item => {
+    // Single double-click listener to open link once
     item.addEventListener('dblclick', () => {
-        const link = item.dataset.link;
-        if (link) {
-            window.open(link, '_blank'); // Open link in a new tab
-        }
+      const link = item.dataset.link;
+      if (link) {
+        window.open(link, '_blank');
+      }
     });
   });
 
   // Desktop Carousel Navigation
   if (desktopCarousel && prevButton && nextButton) {
     prevButton.addEventListener('click', () => {
-        // Scroll left by approx one item width (adjust as needed)
-        const itemWidth = desktopCarousel.querySelector('.carousel-item')?.clientWidth || 400;
-        desktopCarousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+      const itemWidth = desktopCarousel.querySelector('.carousel-item')?.clientWidth || 400;
+      desktopCarousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
     });
-
     nextButton.addEventListener('click', () => {
-        // Scroll right by approx one item width (adjust as needed)
-        const itemWidth = desktopCarousel.querySelector('.carousel-item')?.clientWidth || 400;
-        desktopCarousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
+      const itemWidth = desktopCarousel.querySelector('.carousel-item')?.clientWidth || 400;
+      desktopCarousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
     });
   } else {
-      console.error('Desktop carousel or navigation buttons not found');
+    console.error('Desktop carousel or navigation buttons not found');
   }
 
   // Mobile description toggle on single click
   const mobileCarouselItems = document.querySelectorAll('.mobile-carousel-item');
   mobileCarouselItems.forEach(item => {
     const descriptionDiv = item.querySelector('.mobile-description');
-    if (descriptionDiv) {
-        item.addEventListener('click', (event) => {
-             // Prevent click from interfering with dblclick
-            if (event.detail === 1) { // Check if it's a single click
-                 const description = item.dataset.description;
-                descriptionDiv.textContent = description || ''; // Set text content
-                descriptionDiv.classList.toggle('hidden'); // Toggle visibility
-            }
-        });
-    }
-  });
-
-  // Add double-click listener to open link (Applies to both mobile and desktop items)
-  carouselItems.forEach(item => {
-    item.addEventListener('dblclick', () => {
-        const link = item.dataset.link;
-        if (link) {
-            window.open(link, '_blank'); // Open link in a new tab
-        }
+    if (!descriptionDiv) return;
+    item.addEventListener('click', event => {
+      if (event.detail === 1) {
+        const description = item.dataset.description;
+        descriptionDiv.textContent = description || '';
+        descriptionDiv.classList.toggle('hidden');
+      }
     });
   });
 });
 </script>
+<!-- End of Selection --
