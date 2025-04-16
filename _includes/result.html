@@ -1,20 +1,206 @@
-<section class="flex flex-col justify-evenly h-screen my-48">
-  <h2 class="text-7xl lg:text-5xl text-center w-4/5 mx-auto font-bold">Nos réalisations de sites web</h2>
-  <div class="carousel carousel-vertical mx-auto rounded-box h-[70vh]">
-    <div class="carousel-item h-full">
-      <img src="\assets\images\lafermeaelise.com_(iPhone SE).png" />
+<section id="result" class="flex flex-col justify-evenly w-4/5 mx-auto h-screen my-48">
+  <h2 class="text-7xl lg:mb-12 lg:text-5xl text-center font-bold">
+    Nos réalisations de sites web
+  </h2>
+  <div
+    class="flex flex-col lg:hidden carousel carousel-vertical mx-auto rounded-box h-[70vh]"
+  >
+    <div class="carousel-item mobile-carousel-item relative h-full" data-link="https://lafermeaelise.com/" data-description="Site de réservation pour La Ferme à Élise">
+      <img src="/assets/images/lafermeaelise.com_(iPhone SE).png" alt="Screenshot du site La Ferme à Élise sur mobile" />
+      <div class="mobile-description absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white text-3xl text-center hidden pointer-events-none">
+        <!-- Description populated by JS -->
+      </div>
     </div>
-    <div class="carousel-item h-full">
-      <img src="\assets\images\charcuteriesavoie.com_(iPhone SE).png" />
+    <div class="carousel-item mobile-carousel-item relative h-full" data-link="https://charcuteriesavoie.com/" data-description="Site e-commerce avec Shopify pour Charcuterie Savoie">
+      <img src="/assets/images/charcuteriesavoie.com_(iPhone SE).png" alt="Screenshot du site Charcuterie Savoie sur mobile" />
+      <div class="mobile-description absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white text-3xl text-center hidden pointer-events-none">
+        <!-- Description populated by JS -->
+      </div>
     </div>
-    <div class="carousel-item h-full">
-      <img src="\assets\images\www.binkscbd.fr_(iPhone SE).png" />
+    <div class="carousel-item mobile-carousel-item relative h-full" data-link="https://www.binkscbd.fr/" data-description="Site e-commerce pour Binks CBD, changement de theme shopify">
+      <img src="/assets/images/www.binkscbd.fr_(iPhone SE).png" alt="Screenshot du site Binks CBD sur mobile" />
+      <div class="mobile-description absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white text-3xl text-center hidden pointer-events-none">
+        <!-- Description populated by JS -->
+      </div>
     </div>
-    <div class="carousel-item h-full">
-      <img src="\assets\images\tizepadel.com_(iPhone SE).png" />
+    <div class="carousel-item mobile-carousel-item relative h-full" data-link="https://tizepadel.com/" data-description="Site e-commerce pour Tize Padel, modification du theme shopify">
+      <img src="/assets/images/tizepadel.com_(iPhone SE).png" alt="Screenshot du site Tize Padel sur mobile" />
+      <div class="mobile-description absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white text-3xl text-center hidden pointer-events-none">
+        <!-- Description populated by JS -->
+      </div>
     </div>
-    <div class="carousel-item h-full">
-      <img src="\assets\images\isabelle-neeleman.com_(iPhone SE).png" />
+    <div class="carousel-item mobile-carousel-item relative h-full" data-link="https://isabelle-neeleman.com/" data-description="Site vitrine pour Isabelle Neeleman + site e-commerce avec Shopify">
+      <img src="/assets/images/isabelle-neeleman.com_(iPhone SE).png" alt="Screenshot du site Isabelle Neeleman sur mobile" />
+      <div class="mobile-description absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white text-3xl text-center hidden pointer-events-none">
+        <!-- Description populated by JS -->
+      </div>
     </div>
   </div>
+  <div class="hidden lg:flex">
+    <div class="mockup-browser border-base-300 border w-full">
+      <div class="mockup-browser-toolbar flex justify-between items-center px-2">
+        <div class="flex space-x-1 mr-2">
+            <button id="prevBtn" class="btn btn-xs text-2xl btn-ghost"><span class="text-2xl -translate-y-1">‹</span></button>
+            <button id="nextBtn" class="btn btn-xs text-2xl btn-ghost"><span class="text-2xl -translate-y-1">›</span></button>
+        </div>
+        <div class="input flex-grow text-center">https://ploceus.fr</div>
+        <div class="w-12"></div> <!-- Spacer to balance the buttons -->
+      </div>
+      <div class="grid place-content-center border-t border-base-300 h-fit">
+        <div id="desktop-carousel" class="**:h-[600px] carousel carousel-end rounded-box">
+          <div class="carousel-item" data-link="https://lafermeaelise.com/" data-description="Site e-commerce pour La Ferme à Élise">
+            <img
+              src="/assets/images/lafermeaelise.com_(iPhone SE).png"
+              alt="Screenshot du site La Ferme à Élise sur mobile"
+            />
+          </div>
+          <div class="carousel-item" data-link="https://charcuteriesavoie.com/" data-description="Site vitrine pour Charcuterie Savoie">
+            <img
+              src="/assets/images/charcuteriesavoie.com_(iPhone SE).png"
+              alt="Screenshot du site Charcuterie Savoie sur mobile"
+            />
+          </div>
+          <div class="carousel-item" data-link="https://www.binkscbd.fr/" data-description="Site e-commerce pour Binks CBD">
+            <img
+              src="/assets/images/www.binkscbd.fr_(iPhone SE).png"
+              alt="Screenshot du site Binks CBD sur mobile"
+            />
+          </div>
+          <div class="carousel-item" data-link="https://isabelle-neeleman.com/" data-description="Site vitrine pour Isabelle Neeleman">
+            <img
+              src="/assets/images/isabelle-neeleman.com_(iPhone SE).png"
+              alt="Screenshot du site Isabelle Neeleman sur mobile"
+            />
+          </div>
+          <div class="carousel-item" data-link="https://tizepadel.com/" data-description="Site vitrine pour Tize Padel">
+            <img
+              src="/assets/images/tizepadel.com_(iPhone SE).png"
+              alt="Screenshot du site Tize Padel sur mobile"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Tooltip Element -->
+  <div id="tooltip" class="tooltip-bubble" style="display: none; position: absolute; z-index: 10;"></div>
 </section>
+
+<style>
+.tooltip-bubble {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap; /* Keep content on one line */
+  pointer-events: none; /* Prevent tooltip from interfering with mouse events */
+}
+/* Optional: Add styles for link inside tooltip */
+.tooltip-bubble a {
+    color: #90cdf4; /* Example link color */
+    text-decoration: underline;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const tooltip = document.getElementById('tooltip');
+  const carouselItems = document.querySelectorAll('#result .carousel-item'); // Target items in both carousels within the result section
+  const desktopCarousel = document.getElementById('desktop-carousel');
+  const prevButton = document.getElementById('prevBtn');
+  const nextButton = document.getElementById('nextBtn');
+
+  if (!tooltip) {
+    console.error('Tooltip element not found');
+    return;
+  }
+
+  carouselItems.forEach(item => {
+    item.addEventListener('mouseover', (event) => {
+      // Prevent tooltip on mobile items
+      if (item.classList.contains('mobile-carousel-item')) return;
+
+      const link = item.dataset.link;
+      const description = item.dataset.description;
+
+      if (link && description) {
+        // Include the link and description in the tooltip
+        // Make the link clickable (though the tooltip follows the mouse)
+        tooltip.innerHTML = `<a href="${link}" target="_blank">${link}</a><br>${description}`;
+        tooltip.style.display = 'block';
+      }
+    });
+
+    item.addEventListener('mousemove', (event) => {
+      // Prevent tooltip on mobile items
+      if (item.classList.contains('mobile-carousel-item')) return;
+
+      // Position tooltip near the cursor (+15px offset)
+      tooltip.style.left = `${event.pageX + 15}px`;
+      tooltip.style.top = `${event.pageY + 15}px`;
+    });
+
+    item.addEventListener('mouseout', () => {
+      // Prevent tooltip on mobile items
+      if (item.classList.contains('mobile-carousel-item')) return;
+
+      tooltip.style.display = 'none';
+      tooltip.innerHTML = ''; // Clear content
+    });
+  });
+
+  // Add double-click listener to open link
+  carouselItems.forEach(item => {
+    item.addEventListener('dblclick', () => {
+        const link = item.dataset.link;
+        if (link) {
+            window.open(link, '_blank'); // Open link in a new tab
+        }
+    });
+  });
+
+  // Desktop Carousel Navigation
+  if (desktopCarousel && prevButton && nextButton) {
+    prevButton.addEventListener('click', () => {
+        // Scroll left by approx one item width (adjust as needed)
+        const itemWidth = desktopCarousel.querySelector('.carousel-item')?.clientWidth || 400;
+        desktopCarousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+    });
+
+    nextButton.addEventListener('click', () => {
+        // Scroll right by approx one item width (adjust as needed)
+        const itemWidth = desktopCarousel.querySelector('.carousel-item')?.clientWidth || 400;
+        desktopCarousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
+    });
+  } else {
+      console.error('Desktop carousel or navigation buttons not found');
+  }
+
+  // Mobile description toggle on single click
+  const mobileCarouselItems = document.querySelectorAll('.mobile-carousel-item');
+  mobileCarouselItems.forEach(item => {
+    const descriptionDiv = item.querySelector('.mobile-description');
+    if (descriptionDiv) {
+        item.addEventListener('click', (event) => {
+             // Prevent click from interfering with dblclick
+            if (event.detail === 1) { // Check if it's a single click
+                 const description = item.dataset.description;
+                descriptionDiv.textContent = description || ''; // Set text content
+                descriptionDiv.classList.toggle('hidden'); // Toggle visibility
+            }
+        });
+    }
+  });
+
+  // Add double-click listener to open link (Applies to both mobile and desktop items)
+  carouselItems.forEach(item => {
+    item.addEventListener('dblclick', () => {
+        const link = item.dataset.link;
+        if (link) {
+            window.open(link, '_blank'); // Open link in a new tab
+        }
+    });
+  });
+});
+</script>

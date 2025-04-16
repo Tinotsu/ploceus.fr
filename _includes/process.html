@@ -1,4 +1,4 @@
-<section class="mx-auto my-48 w-4/5">
+<section id="process" class="mx-auto my-48 w-4/5">
   <h2 class="text-7xl lg:text-5xl text-center w-4/5 mx-auto font-bold mb-12">Notre manière de fonctionner</h2>
 
   <ul
@@ -87,3 +87,49 @@
     </li>
   </ul>
 </section>
+
+<style>
+.timeline > li {
+  opacity: 0;
+  transform: translateY(30px); /* Start slightly lower */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline > li.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const timelineItems = document.querySelectorAll('#process .timeline > li');
+
+  if (!timelineItems.length) return; // Exit if no items found
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Find the actual index relative to its siblings for consistent delay
+        const itemIndex = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+        // Apply a staggered delay
+        entry.target.style.transitionDelay = `${itemIndex * 150}ms`;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Stop observing once visible
+      }
+    });
+  };
+
+  const observerOptions = {
+    root: null, // Use the viewport as the root
+    rootMargin: '0px 0px -50px 0px', // Trigger slightly before element is fully in view
+    threshold: 0.1 // Trigger when 10% of the element is visible
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  timelineItems.forEach(item => {
+    observer.observe(item);
+  });
+});
+</script>
